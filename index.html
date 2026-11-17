@@ -4,9 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation | Misbha & Murshid</title>
+<title>Wedding Invitation | Fathimath Misbha & Abdulla Murshid Wafy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,174 +18,221 @@
 }
 
 body {
-  background: #e8dccb;
-  color: #594637;
-  font-family: 'Poppins', sans-serif;
+  background: #e9e8df;
+  color: #2c3531;
+  font-family: 'Cormorant Garamond', serif;
   text-align: center;
-  overflow-x: hidden;
 }
 
-.page {
-  min-height: 100vh;
-  padding: 25px 14px;
-  background:
-    radial-gradient(circle at top, #fff9ed, transparent 55%),
-    linear-gradient(135deg, #e9ddcd, #d8c5ad, #f5ebdc);
+/* ENVELOPE OPENING */
+.opening {
+  position: fixed;
+  inset: 0;
+  background: #3A4D43;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 1s, visibility 1s;
 }
 
-.invitation {
-  max-width: 650px;
-  margin: auto;
-  padding: 38px 22px;
+.envelope {
+  width: 280px;
+  height: 180px;
+  background: #F7F5F0;
   position: relative;
-  overflow: hidden;
-  border: 2px solid #c5a46b;
-  outline: 1px solid #c5a46b;
-  outline-offset: -9px;
-  border-radius: 8px;
-  background: rgba(255, 250, 240, 0.94);
-  box-shadow: 0 15px 45px rgba(77, 54, 35, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px #17231c66;
+  border: 2px solid #C5A059;
 }
 
-.top-line {
-  width: 75px;
-  height: 2px;
-  background: #b89454;
-  margin: 15px auto;
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 100px solid #C5A059;
 }
 
-.small {
-  font-size: 11px;
-  letter-spacing: 3px;
+.seal {
+  position: absolute;
+  top: 75px;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  background: #3A4D43;
+  color: #F7F5F0;
+  border: 2px solid #C5A059;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+}
+
+.open-btn {
+  margin-top: 35px;
+  padding: 12px 30px;
+  background: transparent;
+  color: #F7F5F0;
+  border: 1px solid #C5A059;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* INVITATION CARD */
+.invitation {
+  display: none;
+  max-width: 720px;
+  margin: 25px auto;
+  padding: 18px;
+  background: #FAF8F5;
+  border: 2px solid #C5A059;
+  box-shadow: 0 5px 25px #00000015;
+  animation: fadeIn 1.5s ease;
+}
+
+.invitation-inner {
+  border: 1px solid #C5A059;
+  padding: 35px 20px;
+  position: relative;
+}
+
+/* SIMPLE PLAIN DOUBLE BORDER */
+.plain-border {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #C5A059;
+  pointer-events: none;
+}
+
+.arabic {
+  font-family: 'Amiri', 'Diwan Thuluth', 'Thuluth', serif;
+  font-size: 30px;
   line-height: 2;
-  color: #80664b;
+  color: #3A4D43;
+  direction: rtl;
+  margin: 12px 0;
 }
 
-.dua {
-  font-family: 'Playfair Display', serif;
+.dua-translation {
+  font-size: 17px;
   font-style: italic;
+  color: #6A706A;
+  line-height: 1.6;
+  margin: 8px auto 28px;
+  max-width: 500px;
+}
+
+.small-heading {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #A17D3F;
+  margin: 18px 0;
+}
+
+.invite-text {
+  font-size: 17px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+  color: #59665E;
+}
+
+.names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 8vw, 58px);
+  color: #3A4D43;
+  line-height: 1.4;
+  margin: 15px 0;
+  animation: nameAppear 2s ease;
+}
+
+.parents {
   font-size: 16px;
   line-height: 1.8;
-  color: #80664b;
-  margin: 20px 0;
-}
-
-.heading {
-  font-size: 12px;
-  letter-spacing: 2px;
-  line-height: 2;
-  margin: 20px 0;
-  color: #71553b;
-}
-
-.name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(42px, 9vw, 65px);
-  color: #b18b50;
-  line-height: 1.4;
-  margin: 8px 0;
-  animation: reveal 2s ease both;
-  text-shadow: 1px 2px 3px rgba(120, 83, 38, 0.15);
-}
-
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.family {
-  font-size: 12px;
   letter-spacing: 1px;
-  line-height: 2;
-  color: #705640;
+  color: #626B64;
 }
 
-.address {
-  font-size: 11px;
-  line-height: 1.9;
-  color: #8a735b;
-  margin: 5px 0 20px;
+.divider {
+  width: 100px;
+  height: 1px;
+  background: #C5A059;
+  margin: 22px auto;
 }
 
-.and {
-  font-family: 'Great Vibes', cursive;
-  font-size: 42px;
-  color: #b18b50;
-  margin: 10px 0;
+/* DATE AND TIME */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 28px 0 14px;
 }
 
-.section {
-  margin: 32px 0;
+.detail-box {
+  background: #3A4D43;
+  color: #FAF8F5;
+  padding: 20px 10px;
+  border: 1px solid #C5A059;
 }
 
-.section-title {
-  font-family: 'Playfair Display', serif;
-  color: #a7834d;
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-.date {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
+.detail-box h3 {
+  color: #D5B875;
+  font-size: 14px;
   letter-spacing: 2px;
-  color: #76583b;
-  margin: 10px 0;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
-.nikkah {
-  margin-top: 22px;
-  padding: 18px 10px;
-  border-top: 1px solid #c5a46b;
-  border-bottom: 1px solid #c5a46b;
+.detail-box p {
+  font-size: 21px;
+  line-height: 1.5;
 }
 
-.nikkah-title {
-  font-family: 'Playfair Display', serif;
-  color: #a7834d;
-  font-size: 20px;
-  letter-spacing: 2px;
-}
-
-.nikkah-time {
-  font-family: 'Playfair Display', serif;
-  font-size: 25px;
-  color: #76583b;
-  margin-top: 8px;
-}
-
+/* VENUE */
 .venue {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  color: #76583b;
-  line-height: 1.7;
+  background: #3A4D43;
+  color: #FAF8F5;
+  border: 1px solid #C5A059;
+  padding: 20px 12px;
+  margin-top: 12px;
 }
 
-.venue-address {
-  font-size: 12px;
-  line-height: 2;
-  color: #8a735b;
-}
-
-.gold-button {
-  display: inline-block;
-  text-decoration: none;
-  color: #fffaf0;
-  background: linear-gradient(135deg, #b18b50, #8d6a3e);
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-size: 11px;
+.venue h3 {
+  color: #D5B875;
   letter-spacing: 2px;
-  margin-top: 15px;
-  box-shadow: 0 5px 14px #b18b5040;
-  border: none;
-  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.venue p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* COUNTDOWN */
+.save-date {
+  margin: 30px 0 10px;
+  color: #A17D3F;
+  font-size: 17px;
+  letter-spacing: 4px;
+}
+
+.countdown-title {
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: #3A4D43;
+  margin: 18px 0;
 }
 
 .countdown {
@@ -191,318 +240,283 @@ body {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
 .time-box {
-  background: #f0e5d4;
-  border: 1px solid #c5a46b;
-  border-radius: 8px;
-  padding: 13px 10px;
-  min-width: 70px;
+  min-width: 65px;
+  background: #3A4D43;
+  color: white;
+  padding: 12px 8px;
+  border: 1px solid #C5A059;
 }
 
 .time-box span {
   display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 25px;
-  color: #9a7544;
+  font-size: 24px;
+  color: #E1C78E;
 }
 
 .time-box small {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1px;
-  color: #80664b;
 }
 
+/* DIRECTIONS */
+.directions {
+  display: inline-block;
+  margin: 25px 0;
+  padding: 12px 28px;
+  background: #3A4D43;
+  border: 1px solid #C5A059;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+/* FOOTER */
 .footer {
-  font-size: 10px;
-  line-height: 2;
-  letter-spacing: 1px;
-  color: #80664b;
-  margin-top: 30px;
-}
-
-.parents {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  color: #a7834d;
-  margin-top: 18px;
-}
-
-.sparkle {
-  position: absolute;
-  color: #c5a46b;
   font-size: 15px;
-  animation: sparkle 3s infinite ease-in-out;
-  pointer-events: none;
+  line-height: 1.8;
+  color: #626B64;
+  margin: 25px auto 15px;
+  max-width: 500px;
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: .2; transform: scale(.7); }
-  50% { opacity: 1; transform: scale(1.3); }
-}
-
-.butterfly {
-  position: fixed;
-  z-index: 3;
-  pointer-events: none;
-  font-size: 20px;
-  opacity: .65;
-  animation: fly 12s linear infinite;
-}
-
-.b1 { left: 5%; top: 75%; }
-.b2 { left: 85%; top: 55%; animation-delay: 4s; }
-.b3 { left: 45%; top: 90%; animation-delay: 7s; }
-
-@keyframes fly {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(35px, -100px) rotate(15deg); }
-  100% { transform: translate(-15px, -220px) rotate(-15deg); opacity: 0; }
-}
-
-#cover {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  background: linear-gradient(135deg, #e8dccb, #f8efe1, #d8c5ad);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  transition: opacity 1s ease, visibility 1s ease;
-}
-
-#cover.hide {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.envelope {
-  width: min(310px, 85vw);
-  height: 195px;
-  position: relative;
-  background: #c5a46b;
-  border-radius: 5px;
-  box-shadow: 0 15px 35px #59463740;
-  perspective: 800px;
-}
-
-.envelope-body {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #d8c5ad, #b18b50);
-  z-index: 1;
-}
-
-.envelope-flap {
-  position: absolute;
-  inset: 0;
-  background: #e5d2b6;
-  clip-path: polygon(0 0, 100% 0, 50% 62%);
-  transform-origin: top;
-  transition: transform 1s ease;
-  z-index: 3;
-}
-
-.envelope.open .envelope-flap {
-  transform: rotateX(180deg);
-}
-
-.seal {
-  position: absolute;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #a7834d;
-  color: #fff5e5;
-  display: grid;
-  place-items: center;
+.family {
   font-family: 'Great Vibes', cursive;
-  font-size: 27px;
-  z-index: 4;
-  transition: opacity .4s;
+  font-size: 34px;
+  color: #3A4D43;
+  margin-top: 15px;
 }
 
-.envelope.open .seal {
-  opacity: 0;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.cover-text {
-  font-family: 'Playfair Display', serif;
-  color: #76583b;
-  margin: 25px 0 12px;
-  font-size: 19px;
+@keyframes nameAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@media (max-width: 420px) {
-  .invitation { padding: 30px 16px; }
-  .small { font-size: 10px; }
-  .family { font-size: 11px; }
-  .time-box { min-width: 62px; }
+@media (max-width: 480px) {
+  .invitation {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .invitation-inner {
+    padding: 28px 13px;
+  }
+
+  .arabic {
+    font-size: 25px;
+  }
+
+  .detail-box p,
+  .venue p {
+    font-size: 18px;
+  }
+
+  .parents {
+    font-size: 14px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="butterfly b1">🦋</div>
-<div class="butterfly b2">🦋</div>
-<div class="butterfly b3">🦋</div>
-
-<div id="cover">
-  <div class="envelope" id="envelope">
-    <div class="envelope-body"></div>
-    <div class="envelope-flap"></div>
-    <div class="seal">M</div>
+<!-- ENVELOPE -->
+<div class="opening" id="opening">
+  <div class="envelope">
+    <div class="seal">ب</div>
   </div>
-  <div class="cover-text">A Special Invitation</div>
-  <button class="gold-button" onclick="openInvitation()">
+
+  <button class="open-btn" onclick="openInvitation()">
     OPEN INVITATION
   </button>
 </div>
 
-<div class="page">
-<div class="invitation">
+<!-- WEDDING INVITATION -->
+<main class="invitation" id="invitation">
 
-  <span class="sparkle" style="top:5%;left:8%">✦</span>
-  <span class="sparkle" style="top:12%;right:8%;animation-delay:1s">✧</span>
-  <span class="sparkle" style="top:48%;left:5%;animation-delay:2s">✦</span>
-  <span class="sparkle" style="bottom:12%;right:7%;animation-delay:.5s">✧</span>
+  <div class="invitation-inner">
 
-  <div class="small">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-  <div class="top-line"></div>
+    <div class="plain-border"></div>
 
-  <p class="dua">
-    May Allah bless them both, shower His blessings upon them,
-    and unite them in goodness.
-  </p>
-
-  <div class="heading">
-    WITH THE BLESSINGS OF ALLAH,<br>
-    WE INVITE YOU TO THE WEDDING OF
-  </div>
-
-  <div class="name">Fathimath Misbha</div>
-
-  <div class="family">
-    DAUGHTER OF<br>
-    SAIDALAVI MUSLIYAR & JUVARIYA
-  </div>
-
-  <div class="address">
-    POTHUKKATTL (H), PARIYAPURAM,<br>
-    ANGADIPPURAM
-  </div>
-
-  <div class="and">&</div>
-
-  <div class="name">Abdulla Murshid Wafy</div>
-
-  <div class="family">
-    SON OF<br>
-    MOIDU KUTTY & BUSHRA
-  </div>
-
-  <div class="address">
-    KOLAMBIL PALLIKKARAMMEL (H),<br>
-    VIYATNAMRADI
-  </div>
-
-  <div class="top-line"></div>
-
-  <div class="section">
-    <div class="section-title">SAVE THE DATE</div>
-    <div class="date">
-      06 - SUNDAY<br>
-      DECEMBER 2026
+    <!-- ARABIC DUA -->
+    <div class="arabic">
+      بَارَكَ اللَّهُ لَهُمَا وَبَارَكَ عَلَيْهِمَا وَجَمَعَ بَيْنَهُمَا فِي خَيْرٍ
     </div>
 
-    <div class="nikkah">
-      <div class="nikkah-title">NIKKAH CEREMONY</div>
-      <div class="nikkah-time">11:00 AM</div>
+    <p class="dua-translation">
+      May Allah bless them both, shower His blessings upon them,
+      and unite them in goodness.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="invite-text">
+      WITH THE BLESSINGS OF ALLAH,<br>
+      WE INVITE YOU TO THE WEDDING OF
+    </p>
+
+    <!-- BRIDE -->
+    <h1 class="names">Fathimath Misbha</h1>
+
+    <p class="parents">
+      DAUGHTER OF<br>
+      SAIDALAVI MUSLIYAR & JUVARIYA<br>
+      POTHUKKATTL (H), PARIYAPURAM,<br>
+      ANGADIPPURAM
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="invite-text">AND</p>
+
+    <!-- GROOM -->
+    <h1 class="names">Abdulla Murshid Wafy</h1>
+
+    <p class="parents">
+      SON OF<br>
+      MOIDU KUTTY & BUSHRA<br>
+      KOLAMBIL PALLIKKARAMMEL (H),<br>
+      VIYATNAMRADI
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- DATE AND TIME -->
+    <div class="details">
+
+      <div class="detail-box">
+        <h3>WEDDING DATE</h3>
+        <p>
+          06 DEC<br>
+          SUNDAY<br>
+          2026
+        </p>
+      </div>
+
+      <div class="detail-box">
+        <h3>NIKKAH TIME</h3>
+        <p>
+          11:00<br>
+          AM
+        </p>
+      </div>
+
     </div>
-  </div>
 
-  <div class="section">
-    <div class="section-title">WEDDING VENUE</div>
-    <div class="venue">NAS. CONVENTION CENTRE</div>
-    <div class="venue-address">
-      PUZHAKKATTIRI, KERALA
+    <!-- VENUE -->
+    <div class="venue">
+      <h3>VENUE</h3>
+      <p>
+        NAS. CONVENTION CENTRE,<br>
+        PUZHAKKATTIRI,<br>
+        KERALA
+      </p>
     </div>
 
-    <a class="gold-button"
-       href="https://www.google.com/maps/search/?api=1&query=NAS+Convention+Centre+Puzhakkattiri+Kerala"
-       target="_blank" rel="noopener">
-       DIRECTIONS
-    </a>
-  </div>
+    <!-- SAVE THE DATE -->
+    <p class="save-date">SAVE THE DATE</p>
 
-  <div class="section">
-    <div class="section-title">COUNTING THE DAYS</div>
+    <div class="divider"></div>
+
+    <!-- COUNTDOWN -->
+    <h2 class="countdown-title">COUNTING THE DAYS</h2>
+
     <div class="countdown">
+
       <div class="time-box">
         <span id="days">00</span>
         <small>DAYS</small>
       </div>
+
       <div class="time-box">
         <span id="hours">00</span>
         <small>HOURS</small>
       </div>
+
       <div class="time-box">
         <span id="minutes">00</span>
         <small>MINUTES</small>
       </div>
+
       <div class="time-box">
         <span id="seconds">00</span>
         <small>SECONDS</small>
       </div>
+
     </div>
+
+    <!-- GOOGLE MAPS DIRECTIONS -->
+    <a
+      class="directions"
+      href="https://www.google.com/maps/search/?api=1&query=NAS+Convention+Centre+Puzhakkattiri+Kerala"
+      target="_blank"
+      rel="noopener"
+    >
+      GET DIRECTIONS
+    </a>
+
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <p class="footer">
+      YOUR GRACIOUS PRESENCE AND SINCERE PRAYERS
+      WILL MAKE THIS BLESSED OCCASION TRULY
+      MEMORABLE FOR OUR FAMILY.
+
+      <br><br>
+
+      WITH LOVE AND BEST COMPLIMENTS
+      FROM THE BRIDE'S FAMILY
+    </p>
+
+    <div class="family">
+      Mr. Saidalavi & Mrs. Juvairiya
+    </div>
+
   </div>
-
-  <div class="top-line"></div>
-
-  <div class="footer">
-    YOUR GRACIOUS PRESENCE AND SINCERE PRAYERS
-    WILL MAKE THIS BLESSED OCCASION TRULY
-    MEMORABLE FOR OUR FAMILY.
-    <br><br>
-    WITH LOVE AND BEST COMPLIMENTS
-    FROM THE BRIDE'S FAMILY
-  </div>
-
-  <div class="parents">
-    Mr. Saidalavi & Mrs. Juvairiya
-  </div>
-
-  <div class="top-line"></div>
-  <div class="small">THANK YOU</div>
-
-</div>
-</div>
+</main>
 
 <script>
+/* OPEN INVITATION */
 function openInvitation() {
-  const envelope = document.getElementById("envelope");
-  envelope.classList.add("open");
+  const opening = document.getElementById("opening");
+  const invitation = document.getElementById("invitation");
 
-  setTimeout(() => {
-    document.getElementById("cover").classList.add("hide");
-  }, 900);
+  opening.style.opacity = "0";
+  opening.style.visibility = "hidden";
+
+  invitation.style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 
-const weddingDate = new Date("2026-12-06T00:00:00+05:30").getTime();
+/* COUNTDOWN */
+const weddingDate = new Date(
+  "2026-12-06T00:00:00+05:30"
+).getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
-  const distance = weddingDate - now;
+  const difference = weddingDate - now;
 
-  if (distance <= 0) {
+  if (difference <= 0) {
     document.getElementById("days").textContent = "00";
     document.getElementById("hours").textContent = "00";
     document.getElementById("minutes").textContent = "00";
@@ -510,15 +524,35 @@ function updateCountdown() {
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
+  const days = Math.floor(
+    difference / (1000 * 60 * 60 * 24)
+  );
 
-  document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  const hours = Math.floor(
+    (difference % (1000 * 60 * 60 * 24)) /
+    (1000 * 60 * 60)
+  );
+
+  const minutes = Math.floor(
+    (difference % (1000 * 60 * 60)) /
+    (1000 * 60)
+  );
+
+  const seconds = Math.floor(
+    (difference % (1000 * 60)) / 1000
+  );
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2, "0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
 }
 
 updateCountdown();
