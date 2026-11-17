@@ -1,115 +1,456 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
+<title>Misbha & Murshid | Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;background:#063b30;color:#f8e8bd;
- font-family:Georgia,serif;text-align:center;
- min-height:100vh;
+ margin:0;
+ background:linear-gradient(135deg,#f9f6ff,#e9e0fa,#fff);
+ color:#55436f;
+ font-family:'Poppins',sans-serif;
+ text-align:center;
+ overflow-x:hidden;
 }
-.page{padding:35px 18px;max-width:650px;margin:auto}
-.gold{color:#e8c77b}
-.arabic{font-size:30px;line-height:1.8}
-h1{font-size:36px;font-weight:normal}
-h2{font-weight:normal}
-.small{letter-spacing:3px;font-size:12px}
-.envelope-area{height:260px;display:grid;place-items:center}
+
+.page{
+ max-width:650px;
+ margin:auto;
+ padding:25px 18px;
+}
+
+.arabic{
+ font-size:26px;
+ line-height:2;
+ color:#8065a8;
+}
+
+.small{
+ letter-spacing:2px;
+ font-size:11px;
+ line-height:2;
+}
+
+h1,h2{
+ font-family:'Playfair Display',serif;
+ font-weight:normal;
+}
+
+h1{
+ color:#8065a8;
+ font-size:32px;
+}
+
+h2{color:#8065a8}
+
+.gold{color:#947bb8}
+
+.envelope-area{
+ height:250px;
+ display:grid;
+ place-items:center;
+}
+
 .envelope{
- width:260px;height:165px;position:relative;
- background:#d6b66e;cursor:pointer;
- box-shadow:0 12px 35px #001c16;
- border-radius:4px;
+ width:260px;
+ height:160px;
+ background:#bca8df;
+ position:relative;
+ cursor:pointer;
+ box-shadow:0 12px 28px #8c78ad66;
+ border-radius:5px;
 }
+
 .envelope:before{
- content:"";position:absolute;inset:0;
- background:#b8944d;
+ content:"";
+ position:absolute;
+ inset:0;
+ background:#d8c9ef;
  clip-path:polygon(0 0,50% 58%,100% 0);
- transform-origin:top;transition:transform .8s;z-index:3;
+ transform-origin:top;
+ transition:transform .9s;
+ z-index:3;
 }
+
 .envelope:after{
- content:"";position:absolute;inset:0;
- background:#e8ce8b;
+ content:"";
+ position:absolute;
+ inset:0;
+ background:#a68dcf;
  clip-path:polygon(0 100%,50% 48%,100% 100%);
 }
+
 .seal{
- position:absolute;z-index:4;top:58px;left:calc(50% - 23px);
- width:46px;height:46px;border-radius:50%;
- background:#075344;color:#f5d78f;
- display:grid;place-items:center;font-size:23px;
+ position:absolute;
+ z-index:4;
+ top:57px;
+ left:calc(50% - 23px);
+ width:46px;
+ height:46px;
+ border-radius:50%;
+ background:#77609d;
+ color:white;
+ display:grid;
+ place-items:center;
+ font-size:22px;
 }
-.envelope.open:before{transform:rotateX(180deg)}
+
+.envelope.open:before{
+ transform:rotateX(180deg);
+}
+
 .invitation{
- display:none;background:#f8edcf;color:#174b3b;
- padding:28px 18px;margin:10px auto;
- border:5px double #bd9851;animation:show 1s;
+ display:none;
+ background:#fff;
+ padding:30px 18px;
+ margin:10px auto;
+ border:5px double #bba8d9;
+ outline:1px solid #ded3ee;
+ outline-offset:5px;
+ animation:appear 1s;
 }
+
 .invitation.show{display:block}
-@keyframes show{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-.names{font-size:32px;color:#986e2c;line-height:1.5}
-.details{border-top:1px solid #bd9851;margin-top:22px;padding-top:15px}
-.count{font-size:23px;color:#f3d28c;margin:20px}
-button{
- background:#d9b96e;color:#063b30;border:0;
- padding:13px 25px;border-radius:25px;
- font-size:15px;cursor:pointer;
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(25px)}
+ to{opacity:1;transform:translateY(0)}
 }
-a{color:#f2d48f}
-footer{padding:30px;font-size:13px}
+
+.names{
+ font-family:'Great Vibes',cursive;
+ font-size:46px;
+ color:#8065a8;
+ line-height:1.5;
+}
+
+.parents{
+ font-size:13px;
+ line-height:1.9;
+ color:#655579;
+}
+
+.address{
+ font-size:12px;
+ line-height:1.8;
+ color:#8875a5;
+}
+
+.details{
+ border-top:1px solid #d7c9e9;
+ margin-top:25px;
+ padding-top:18px;
+}
+
+.date{
+ font-family:'Playfair Display',serif;
+ font-size:27px;
+ color:#8065a8;
+ line-height:1.5;
+}
+
+.venue{
+ font-size:19px;
+ color:#8065a8;
+ font-family:'Playfair Display',serif;
+}
+
+.countdown{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:7px;
+ margin:20px 0;
+}
+
+.countdown div{
+ background:#eee7fa;
+ padding:13px 3px;
+ border-radius:10px;
+ color:#8065a8;
+}
+
+.countdown strong{
+ display:block;
+ font-size:23px;
+}
+
+.countdown span{
+ font-size:10px;
+ letter-spacing:1px;
+}
+
+.btn{
+ display:inline-block;
+ background:#8b73b2;
+ color:white;
+ border:0;
+ padding:12px 23px;
+ border-radius:25px;
+ text-decoration:none;
+ font-size:13px;
+ margin:8px;
+ cursor:pointer;
+}
+
+.butterfly{
+ position:fixed;
+ bottom:-40px;
+ font-size:22px;
+ animation:fly 12s linear infinite;
+ opacity:.5;
+ pointer-events:none;
+}
+
+@keyframes fly{
+ 0%{transform:translateY(0) rotate(0);opacity:0}
+ 15%{opacity:.7}
+ 100%{transform:translateY(-110vh) rotate(40deg);opacity:0}
+}
+
+.sparkle{
+ position:fixed;
+ color:#b9a7d8;
+ font-size:16px;
+ animation:twinkle 2s infinite alternate;
+ pointer-events:none;
+}
+
+@keyframes twinkle{
+ from{opacity:.2;transform:scale(.7)}
+ to{opacity:1;transform:scale(1.3)}
+}
+
+footer{
+ padding:25px;
+ font-size:12px;
+ color:#8875a5;
+ line-height:2;
+}
+
+@media(max-width:380px){
+ .names{font-size:36px}
+ .countdown strong{font-size:19px}
+}
 </style>
 </head>
+
 <body>
+
 <div class="page">
- <p class="arabic gold">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
- <p class="small">YOU ARE CORDIALLY INVITED</p>
- <h1 class="gold">Wedding Invitation</h1>
- <p>With the blessings of Allah,</p>
- <p>we invite you to celebrate our special day.</p>
 
- <div class="envelope-area">
-  <div class="envelope" id="env" onclick="openInvite()">
-   <div class="seal">♥</div>
-  </div>
+<p class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+<p class="small">A BEAUTIFUL BEGINNING</p>
+
+<h1>Wedding Invitation</h1>
+
+<p>With the blessings of Allah</p>
+
+<div class="envelope-area">
+ <div class="envelope" id="env" onclick="openInvite()">
+  <div class="seal">♥</div>
  </div>
- <p class="gold">Tap the envelope to open</p>
+</div>
 
- <div class="invitation" id="invite">
-  <p class="arabic">بَارَكَ اللَّهُ لَكُمَا</p>
-  <p class="small">JOIN US TO CELEBRATE THE WEDDING OF</p>
-  <div class="names">BRIDE NAME<br>&amp;<br>GROOM NAME</div>
-  <p>In the name of Allah, the Most Merciful</p>
+<p class="gold">Tap to open your invitation ♡</p>
 
-  <div class="details">
-   <h2>♡ NIKAH CEREMONY ♡</h2>
-   <p>DATE: Add Nikah Date</p>
-   <p>TIME: Add Nikah Time</p>
-   <p>VENUE: Add Nikah Venue</p>
-  </div>
+<div class="invitation" id="invite">
 
-  <div class="details">
-   <h2>♡ WALIMA ♡</h2>
-   <p>DATE: Add Walima Date</p>
-   <p>TIME: Add Walima Time</p>
-   <p>VENUE: Add Walima Venue</p>
-  </div>
-  <p class="gold">May Allah bless this beautiful union.</p>
- </div>
+<p class="arabic">
+بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا
+</p>
 
- <h2 class="gold">The Big Day</h2>
- <div class="count" id="countdown">Coming Soon</div>
- <footer>With love and duas ♡</footer>
+<p class="small">
+MAY ALLAH BLESS THEM BOTH, SHOWER HIS BLESSINGS UPON THEM, AND UNITE THEM IN GOODNESS.
+</p>
+
+<br>
+
+<p class="small">
+WITH THE BLESSINGS OF ALLAH,<br>
+WE INVITE YOU TO THE WEDDING OF
+</p>
+
+<div class="names">Fathimath Misbha Wafiyya</div>
+
+<p class="small">DAUGHTER OF</p>
+
+<div class="parents">
+SAIDALAVI MUSLIYAR & JUVARIYA
+</div>
+
+<div class="address">
+POTHUKKATTL (H), PARIYAPURAM,<br>
+ANGADIPPURAM
+</div>
+
+<br>
+
+<p class="gold">AND</p>
+
+<div class="names">Abdulla Murshid Wafy</div>
+
+<p class="small">SON OF</p>
+
+<div class="parents">
+MOIDU KUTTY & BUSHRA
+</div>
+
+<div class="address">
+KOLAMBIL PALLIKKARAMMEL (H),<br>
+VIYATNAMRADI
+</div>
+
+<div class="details">
+
+<p class="small">SAVE THE DATE</p>
+
+<div class="date">
+06 - SUNDAY<br>
+DECEMBER 2026
+</div>
+
+<p class="gold">♡ WEDDING CELEBRATION ♡</p>
+
+<div class="venue">
+NAS. CONVENTION CENTRE
+</div>
+
+<p class="address">
+PUZHAKKATTIRI, KERALA
+</p>
+
+<a class="btn"
+href="https://www.google.com/maps/search/?api=1&query=NAS+Convention+Centre+Puzhakkattiri+Kerala"
+target="_blank">
+DIRECTIONS
+</a>
+
+</div>
+
+<div class="details">
+
+<h2>Counting the Days</h2>
+
+<div class="countdown">
+ <div><strong id="days">00</strong><span>DAYS</span></div>
+ <div><strong id="hours">00</strong><span>HOURS</span></div>
+ <div><strong id="minutes">00</strong><span>MINUTES</span></div>
+ <div><strong id="seconds">00</strong><span>SECONDS</span></div>
+</div>
+
+</div>
+
+<div class="details">
+
+<p class="small">
+YOUR GRACIOUS PRESENCE AND SINCERE PRAYERS
+WILL MAKE THIS BLESSED OCCASION TRULY
+MEMORABLE FOR OUR FAMILY.
+</p>
+
+<br>
+
+<p class="small">WITH LOVE AND BEST COMPLIMENTS FROM</p>
+
+<h2>THE BRIDE'S FAMILY</h2>
+
+<p class="arabic">الحمد لله</p>
+
+</div>
+
+</div>
+
+<button class="btn" onclick="shareInvite()">
+SHARE INVITATION ♡
+</button>
+
+<footer>
+Made with love and duas ✨
+</footer>
+
 </div>
 
 <script>
+
 function openInvite(){
  document.getElementById("env").classList.add("open");
  document.getElementById("invite").classList.add("show");
 }
+
+const weddingDate = new Date("2026-12-06T00:00:00+05:30").getTime();
+
+function updateCountdown(){
+
+ const now = Date.now();
+ const diff = weddingDate-now;
+
+ if(diff<=0){
+  document.getElementById("days").innerText="00";
+  document.getElementById("hours").innerText="00";
+  document.getElementById("minutes").innerText="00";
+  document.getElementById("seconds").innerText="00";
+  return;
+ }
+
+ const d=Math.floor(diff/86400000);
+ const h=Math.floor(diff/3600000)%24;
+ const m=Math.floor(diff/60000)%60;
+ const s=Math.floor(diff/1000)%60;
+
+ document.getElementById("days").innerText=String(d).padStart(2,"0");
+ document.getElementById("hours").innerText=String(h).padStart(2,"0");
+ document.getElementById("minutes").innerText=String(m).padStart(2,"0");
+ document.getElementById("seconds").innerText=String(s).padStart(2,"0");
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+function shareInvite(){
+
+ if(navigator.share){
+  navigator.share({
+   title:"Wedding Invitation",
+   text:"You are invited to the wedding of Fathimath Misbha Wafiyya & Abdulla Murshid Wafy",
+   url:location.href
+  });
+ }else{
+  navigator.clipboard.writeText(location.href);
+  alert("Invitation link copied!");
+ }
+
+}
+
+// Floating butterflies
+for(let i=0;i<8;i++){
+ const b=document.createElement("div");
+ b.className="butterfly";
+ b.innerText="🦋";
+ b.style.left=Math.random()*100+"%";
+ b.style.animationDelay=Math.random()*12+"s";
+ document.body.appendChild(b);
+}
+
+// Silver sparkles
+for(let i=0;i<12;i++){
+ const s=document.createElement("div");
+ s.className="sparkle";
+ s.innerText="✧";
+ s.style.left=Math.random()*100+"%";
+ s.style.top=Math.random()*100+"%";
+ s.style.animationDelay=Math.random()*2+"s";
+ document.body.appendChild(s);
+}
+
 </script>
+
 </body>
 </html>
