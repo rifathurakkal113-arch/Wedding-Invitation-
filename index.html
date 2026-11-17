@@ -1,1 +1,115 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#063b30;color:#f8e8bd;
+ font-family:Georgia,serif;text-align:center;
+ min-height:100vh;
+}
+.page{padding:35px 18px;max-width:650px;margin:auto}
+.gold{color:#e8c77b}
+.arabic{font-size:30px;line-height:1.8}
+h1{font-size:36px;font-weight:normal}
+h2{font-weight:normal}
+.small{letter-spacing:3px;font-size:12px}
+.envelope-area{height:260px;display:grid;place-items:center}
+.envelope{
+ width:260px;height:165px;position:relative;
+ background:#d6b66e;cursor:pointer;
+ box-shadow:0 12px 35px #001c16;
+ border-radius:4px;
+}
+.envelope:before{
+ content:"";position:absolute;inset:0;
+ background:#b8944d;
+ clip-path:polygon(0 0,50% 58%,100% 0);
+ transform-origin:top;transition:transform .8s;z-index:3;
+}
+.envelope:after{
+ content:"";position:absolute;inset:0;
+ background:#e8ce8b;
+ clip-path:polygon(0 100%,50% 48%,100% 100%);
+}
+.seal{
+ position:absolute;z-index:4;top:58px;left:calc(50% - 23px);
+ width:46px;height:46px;border-radius:50%;
+ background:#075344;color:#f5d78f;
+ display:grid;place-items:center;font-size:23px;
+}
+.envelope.open:before{transform:rotateX(180deg)}
+.invitation{
+ display:none;background:#f8edcf;color:#174b3b;
+ padding:28px 18px;margin:10px auto;
+ border:5px double #bd9851;animation:show 1s;
+}
+.invitation.show{display:block}
+@keyframes show{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.names{font-size:32px;color:#986e2c;line-height:1.5}
+.details{border-top:1px solid #bd9851;margin-top:22px;padding-top:15px}
+.count{font-size:23px;color:#f3d28c;margin:20px}
+button{
+ background:#d9b96e;color:#063b30;border:0;
+ padding:13px 25px;border-radius:25px;
+ font-size:15px;cursor:pointer;
+}
+a{color:#f2d48f}
+footer{padding:30px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="page">
+ <p class="arabic gold">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+ <p class="small">YOU ARE CORDIALLY INVITED</p>
+ <h1 class="gold">Wedding Invitation</h1>
+ <p>With the blessings of Allah,</p>
+ <p>we invite you to celebrate our special day.</p>
+
+ <div class="envelope-area">
+  <div class="envelope" id="env" onclick="openInvite()">
+   <div class="seal">♥</div>
+  </div>
+ </div>
+ <p class="gold">Tap the envelope to open</p>
+
+ <div class="invitation" id="invite">
+  <p class="arabic">بَارَكَ اللَّهُ لَكُمَا</p>
+  <p class="small">JOIN US TO CELEBRATE THE WEDDING OF</p>
+  <div class="names">BRIDE NAME<br>&amp;<br>GROOM NAME</div>
+  <p>In the name of Allah, the Most Merciful</p>
+
+  <div class="details">
+   <h2>♡ NIKAH CEREMONY ♡</h2>
+   <p>DATE: Add Nikah Date</p>
+   <p>TIME: Add Nikah Time</p>
+   <p>VENUE: Add Nikah Venue</p>
+  </div>
+
+  <div class="details">
+   <h2>♡ WALIMA ♡</h2>
+   <p>DATE: Add Walima Date</p>
+   <p>TIME: Add Walima Time</p>
+   <p>VENUE: Add Walima Venue</p>
+  </div>
+  <p class="gold">May Allah bless this beautiful union.</p>
+ </div>
+
+ <h2 class="gold">The Big Day</h2>
+ <div class="count" id="countdown">Coming Soon</div>
+ <footer>With love and duas ♡</footer>
+</div>
+
+<script>
+function openInvite(){
+ document.getElementById("env").classList.add("open");
+ document.getElementById("invite").classList.add("show");
+}
+</script>
+</body>
+</html>
