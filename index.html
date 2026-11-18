@@ -4,11 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation | Fathimath Misbha & Abdulla Murshid Wafy</title>
+
+<title>Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -19,314 +21,377 @@
 
 body {
   background: #e9e8df;
-  color: #2c3531;
+  color: #29372f;
   font-family: 'Cormorant Garamond', serif;
   text-align: center;
 }
 
-/* ENVELOPE OPENING */
-.opening {
-  position: fixed;
-  inset: 0;
-  background: #3A4D43;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition: opacity 1s, visibility 1s;
-}
+/* MAIN CARD */
 
-.envelope {
-  width: 280px;
-  height: 180px;
-  background: #F7F5F0;
+.card {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10px 30px #17231c66;
-  border: 2px solid #C5A059;
-}
-
-.envelope::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
-  border-top: 100px solid #C5A059;
-}
-
-.seal {
-  position: absolute;
-  top: 75px;
-  z-index: 2;
-  width: 48px;
-  height: 48px;
-  background: #3A4D43;
-  color: #F7F5F0;
-  border: 2px solid #C5A059;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Amiri', serif;
-  font-size: 24px;
-}
-
-.open-btn {
-  margin-top: 35px;
-  padding: 12px 30px;
-  background: transparent;
-  color: #F7F5F0;
-  border: 1px solid #C5A059;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-/* INVITATION CARD */
-.invitation {
-  display: none;
   max-width: 720px;
-  margin: 25px auto;
-  padding: 18px;
-  background: #FAF8F5;
-  border: 2px solid #C5A059;
-  box-shadow: 0 5px 25px #00000015;
-  animation: fadeIn 1.5s ease;
+  min-height: 100vh;
+  margin: 20px auto;
+  padding: 55px 25px 40px;
+  background: #faf9f5;
+  overflow: hidden;
+  box-shadow: 0 5px 30px #00000018;
 }
 
-.invitation-inner {
-  border: 1px solid #C5A059;
-  padding: 35px 20px;
-  position: relative;
-}
+/* WATERCOLOR BACKGROUND EFFECTS */
 
-/* SIMPLE PLAIN DOUBLE BORDER */
-.plain-border {
+.watercolor-top {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 1px solid #C5A059;
+  top: -100px;
+  right: -100px;
+  width: 370px;
+  height: 350px;
+  background:
+    radial-gradient(ellipse at 60% 35%, #40594b 0%, #526b5b 35%, #758575 58%, transparent 75%);
+  opacity: .85;
+  filter: blur(18px);
+  transform: rotate(-20deg);
   pointer-events: none;
 }
 
-.arabic {
-  font-family: 'Amiri', 'Diwan Thuluth', 'Thuluth', serif;
-  font-size: 30px;
-  line-height: 2;
-  color: #3A4D43;
-  direction: rtl;
-  margin: 12px 0;
+.watercolor-bottom {
+  position: absolute;
+  bottom: -110px;
+  left: -120px;
+  width: 390px;
+  height: 370px;
+  background:
+    radial-gradient(ellipse at 45% 55%, #40594b 0%, #526b5b 40%, #879486 65%, transparent 78%);
+  opacity: .85;
+  filter: blur(20px);
+  transform: rotate(20deg);
+  pointer-events: none;
 }
 
-.dua-translation {
-  font-size: 17px;
-  font-style: italic;
-  color: #6A706A;
-  line-height: 1.6;
-  margin: 8px auto 28px;
-  max-width: 500px;
+/* GOLD BORDER */
+
+.card-border {
+  position: absolute;
+  inset: 15px;
+  border: 1px solid #bda16c;
+  pointer-events: none;
 }
 
-.small-heading {
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: #A17D3F;
-  margin: 18px 0;
+/* LEAF DECORATION */
+
+.leaves {
+  position: absolute;
+  width: 180px;
+  height: 280px;
+  pointer-events: none;
+  opacity: .85;
 }
 
-.invite-text {
-  font-size: 17px;
-  letter-spacing: 2px;
-  line-height: 1.8;
-  color: #59665E;
+.leaves-right {
+  right: -8px;
+  bottom: 30px;
 }
 
-.names {
+.leaves-left {
+  left: -75px;
+  top: 15px;
+  transform: rotate(180deg);
+  opacity: .45;
+}
+
+.leaves path {
+  stroke: #536b59;
+  stroke-width: 2;
+  fill: none;
+}
+
+.leaves ellipse {
+  fill: #617966;
+  opacity: .75;
+}
+
+.leaves .light {
+  fill: #8b9986;
+  opacity: .8;
+}
+
+/* GOLD DETAILS */
+
+.gold-dots {
+  position: absolute;
+  width: 100px;
+  height: 130px;
+  pointer-events: none;
+  opacity: .8;
+}
+
+.dots-top {
+  top: 45px;
+  right: 100px;
+}
+
+.dots-bottom {
+  bottom: 130px;
+  right: 45px;
+}
+
+/* CONTENT */
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.top-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: #39473d;
+  margin-top: 75px;
+  margin-bottom: 55px;
+}
+
+.main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 10vw, 75px);
+  font-weight: 400;
+  letter-spacing: 7px;
+  color: #29372f;
+  line-height: 1.1;
+}
+
+.script-title {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(38px, 8vw, 58px);
-  color: #3A4D43;
-  line-height: 1.4;
-  margin: 15px 0;
-  animation: nameAppear 2s ease;
+  font-size: clamp(45px, 10vw, 70px);
+  color: #a58a56;
+  margin-top: 8px;
+  margin-bottom: 45px;
+}
+
+.names-label {
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #39473d;
+  margin-bottom: 18px;
+}
+
+.bride-name,
+.groom-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(29px, 7vw, 43px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #29372f;
+  line-height: 1.3;
+}
+
+.and {
+  font-family: 'Great Vibes', cursive;
+  color: #a58a56;
+  font-size: 38px;
+  margin: 8px 0;
 }
 
 .parents {
   font-size: 16px;
-  line-height: 1.8;
-  letter-spacing: 1px;
-  color: #626B64;
-}
-
-.divider {
-  width: 100px;
-  height: 1px;
-  background: #C5A059;
-  margin: 22px auto;
-}
-
-/* DATE AND TIME */
-.details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 28px 0 14px;
-}
-
-.detail-box {
-  background: #3A4D43;
-  color: #FAF8F5;
-  padding: 20px 10px;
-  border: 1px solid #C5A059;
-}
-
-.detail-box h3 {
-  color: #D5B875;
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.detail-box p {
-  font-size: 21px;
-  line-height: 1.5;
-}
-
-/* VENUE */
-.venue {
-  background: #3A4D43;
-  color: #FAF8F5;
-  border: 1px solid #C5A059;
-  padding: 20px 12px;
+  line-height: 1.7;
+  letter-spacing: 1.3px;
+  color: #59645b;
   margin-top: 12px;
 }
 
-.venue h3 {
-  color: #D5B875;
-  letter-spacing: 2px;
-  font-size: 14px;
+.divider {
+  width: 85px;
+  height: 1px;
+  background: #bda16c;
+  margin: 28px auto;
+}
+
+/* DATE AND TIME */
+
+.date-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 480px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.date-box,
+.time-box {
+  padding: 12px 5px;
+}
+
+.date-box {
+  border-right: 1px solid #bda16c;
+}
+
+.label {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #59645b;
   margin-bottom: 10px;
 }
 
-.venue p {
-  font-size: 20px;
-  line-height: 1.5;
+.date-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: #29372f;
+  line-height: 1.1;
+}
+
+.date-month {
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: #59645b;
+  margin-top: 5px;
+}
+
+.time-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #29372f;
+  margin-top: 10px;
+}
+
+.time-period {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #59645b;
+}
+
+/* VENUE */
+
+.venue {
+  margin: 35px auto 0;
+  max-width: 480px;
+}
+
+.venue-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  letter-spacing: 3px;
+  color: #29372f;
+  line-height: 1.6;
+}
+
+.venue-place {
+  font-size: 17px;
+  letter-spacing: 2px;
+  line-height: 1.7;
+  color: #59645b;
+  margin-top: 8px;
 }
 
 /* COUNTDOWN */
-.save-date {
-  margin: 30px 0 10px;
-  color: #A17D3F;
-  font-size: 17px;
-  letter-spacing: 4px;
+
+.countdown-section {
+  margin: 45px auto 20px;
 }
 
-.countdown-title {
-  font-size: 20px;
-  letter-spacing: 3px;
-  color: #3A4D43;
-  margin: 18px 0;
+.countdown-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  letter-spacing: 4px;
+  color: #39473d;
+  margin-bottom: 20px;
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.time-box {
+.count-item {
   min-width: 65px;
-  background: #3A4D43;
-  color: white;
-  padding: 12px 8px;
-  border: 1px solid #C5A059;
 }
 
-.time-box span {
+.count-item span {
   display: block;
-  font-size: 24px;
-  color: #E1C78E;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: #29372f;
 }
 
-.time-box small {
-  font-size: 11px;
-  letter-spacing: 1px;
+.count-item small {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #7a806f;
 }
 
 /* DIRECTIONS */
+
 .directions {
   display: inline-block;
-  margin: 25px 0;
+  margin: 25px auto;
   padding: 12px 28px;
-  background: #3A4D43;
-  border: 1px solid #C5A059;
-  color: #fff;
+  border: 1px solid #bda16c;
+  color: #39473d;
   text-decoration: none;
-  letter-spacing: 2px;
-  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  transition: .3s;
+}
+
+.directions:hover {
+  background: #39473d;
+  color: #fff;
 }
 
 /* FOOTER */
+
 .footer {
+  max-width: 450px;
+  margin: 15px auto;
   font-size: 15px;
   line-height: 1.8;
-  color: #626B64;
-  margin: 25px auto 15px;
-  max-width: 500px;
+  letter-spacing: 1px;
+  color: #59645b;
 }
 
 .family {
   font-family: 'Great Vibes', cursive;
-  font-size: 34px;
-  color: #3A4D43;
-  margin-top: 15px;
+  font-size: 35px;
+  color: #a58a56;
+  margin-top: 22px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes nameAppear {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 480px) {
-  .invitation {
-    margin: 10px;
-    padding: 10px;
+@media(max-width: 480px) {
+  .card {
+    margin: 8px;
+    padding: 35px 18px 35px;
   }
 
-  .invitation-inner {
-    padding: 28px 13px;
+  .card-border {
+    inset: 10px;
   }
 
-  .arabic {
-    font-size: 25px;
-  }
-
-  .detail-box p,
-  .venue p {
-    font-size: 18px;
+  .top-heading {
+    margin-top: 75px;
+    margin-bottom: 45px;
+    font-size: 11px;
   }
 
   .parents {
     font-size: 14px;
+  }
+
+  .venue-name {
+    font-size: 17px;
+  }
+
+  .venue-place {
+    font-size: 15px;
+  }
+
+  .leaves {
+    width: 145px;
+    height: 230px;
   }
 }
 </style>
@@ -334,43 +399,50 @@ body {
 
 <body>
 
-<!-- ENVELOPE -->
-<div class="opening" id="opening">
-  <div class="envelope">
-    <div class="seal">ب</div>
-  </div>
+<section class="card">
 
-  <button class="open-btn" onclick="openInvitation()">
-    OPEN INVITATION
-  </button>
-</div>
+  <div class="watercolor-top"></div>
+  <div class="watercolor-bottom"></div>
+  <div class="card-border"></div>
 
-<!-- WEDDING INVITATION -->
-<main class="invitation" id="invitation">
+  <!-- LEAF BRANCH -->
+  <svg class="leaves leaves-right" viewBox="0 0 180 280">
+    <path d="M170 275 Q110 190 85 110 Q65 55 35 10"/>
+    <path d="M130 220 Q95 180 60 175"/>
+    <path d="M110 185 Q145 160 150 130"/>
+    <path d="M90 145 Q55 125 45 95"/>
+    <path d="M70 105 Q105 85 112 55"/>
+    <path d="M150 250 Q125 220 95 220"/>
 
-  <div class="invitation-inner">
+    <ellipse cx="60" cy="175" rx="12" ry="28" transform="rotate(-55 60 175)"/>
+    <ellipse cx="150" cy="130" rx="13" ry="29" transform="rotate(35 150 130)"/>
+    <ellipse cx="45" cy="95" rx="12" ry="27" transform="rotate(-40 45 95)"/>
+    <ellipse cx="112" cy="55" rx="12" ry="27" transform="rotate(35 112 55)"/>
+    <ellipse cx="95" cy="220" rx="12" ry="26" transform="rotate(-55 95 220)"/>
+    <ellipse class="light" cx="125" cy="185" rx="11" ry="24" transform="rotate(40 125 185)"/>
+    <ellipse class="light" cx="80" cy="125" rx="10" ry="24" transform="rotate(-45 80 125)"/>
+  </svg>
 
-    <div class="plain-border"></div>
+  <svg class="leaves leaves-left" viewBox="0 0 180 280">
+    <path d="M170 275 Q110 190 85 110 Q65 55 35 10"/>
+    <path d="M130 220 Q95 180 60 175"/>
+    <path d="M110 185 Q145 160 150 130"/>
+    <path d="M90 145 Q55 125 45 95"/>
+    <ellipse cx="60" cy="175" rx="12" ry="28" transform="rotate(-55 60 175)"/>
+    <ellipse cx="150" cy="130" rx="13" ry="29" transform="rotate(35 150 130)"/>
+    <ellipse cx="45" cy="95" rx="12" ry="27" transform="rotate(-40 45 95)"/>
+  </svg>
 
-    <!-- ARABIC DUA -->
-    <div class="arabic">
-      بَارَكَ اللَّهُ لَهُمَا وَبَارَكَ عَلَيْهِمَا وَجَمَعَ بَيْنَهُمَا فِي خَيْرٍ
-    </div>
+  <div class="content">
 
-    <p class="dua-translation">
-      May Allah bless them both, shower His blessings upon them,
-      and unite them in goodness.
-    </p>
+    <p class="top-heading">YOU'RE INVITED TO</p>
 
-    <div class="divider"></div>
+    <h1 class="main-title">WEDDING</h1>
+    <p class="script-title">Celebration</p>
 
-    <p class="invite-text">
-      WITH THE BLESSINGS OF ALLAH,<br>
-      WE INVITE YOU TO THE WEDDING OF
-    </p>
+    <p class="names-label">WITH THE BLESSINGS OF ALLAH</p>
 
-    <!-- BRIDE -->
-    <h1 class="names">Fathimath Misbha</h1>
+    <h2 class="bride-name">Fathimath Misbha</h2>
 
     <p class="parents">
       DAUGHTER OF<br>
@@ -379,12 +451,9 @@ body {
       ANGADIPPURAM
     </p>
 
-    <div class="divider"></div>
+    <p class="and">&</p>
 
-    <p class="invite-text">AND</p>
-
-    <!-- GROOM -->
-    <h1 class="names">Abdulla Murshid Wafy</h1>
+    <h2 class="groom-name">Abdulla Murshid Wafy</h2>
 
     <p class="parents">
       SON OF<br>
@@ -396,70 +465,73 @@ body {
     <div class="divider"></div>
 
     <!-- DATE AND TIME -->
-    <div class="details">
 
-      <div class="detail-box">
-        <h3>WEDDING DATE</h3>
-        <p>
-          06 DEC<br>
-          SUNDAY<br>
-          2026
-        </p>
+    <div class="date-details">
+
+      <div class="date-box">
+        <p class="label">SUNDAY</p>
+        <p class="date-number">06</p>
+        <p class="date-month">DECEMBER 2026</p>
       </div>
 
-      <div class="detail-box">
-        <h3>NIKKAH TIME</h3>
-        <p>
-          11:00<br>
-          AM
-        </p>
+      <div class="time-box">
+        <p class="label">NIKKAH TIME</p>
+        <p class="time-number">11:00</p>
+        <p class="time-period">AM</p>
       </div>
 
     </div>
 
+    <div class="divider"></div>
+
     <!-- VENUE -->
+
     <div class="venue">
-      <h3>VENUE</h3>
-      <p>
-        NAS. CONVENTION CENTRE,<br>
+      <p class="label">VENUE</p>
+
+      <h3 class="venue-name">
+        NAS. CONVENTION CENTRE
+      </h3>
+
+      <p class="venue-place">
         PUZHAKKATTIRI,<br>
         KERALA
       </p>
     </div>
 
-    <!-- SAVE THE DATE -->
-    <p class="save-date">SAVE THE DATE</p>
-
-    <div class="divider"></div>
-
     <!-- COUNTDOWN -->
-    <h2 class="countdown-title">COUNTING THE DAYS</h2>
 
-    <div class="countdown">
+    <div class="countdown-section">
 
-      <div class="time-box">
-        <span id="days">00</span>
-        <small>DAYS</small>
+      <p class="countdown-heading">COUNTING THE DAYS</p>
+
+      <div class="countdown">
+
+        <div class="count-item">
+          <span id="days">00</span>
+          <small>DAYS</small>
+        </div>
+
+        <div class="count-item">
+          <span id="hours">00</span>
+          <small>HOURS</small>
+        </div>
+
+        <div class="count-item">
+          <span id="minutes">00</span>
+          <small>MINUTES</small>
+        </div>
+
+        <div class="count-item">
+          <span id="seconds">00</span>
+          <small>SECONDS</small>
+        </div>
+
       </div>
-
-      <div class="time-box">
-        <span id="hours">00</span>
-        <small>HOURS</small>
-      </div>
-
-      <div class="time-box">
-        <span id="minutes">00</span>
-        <small>MINUTES</small>
-      </div>
-
-      <div class="time-box">
-        <span id="seconds">00</span>
-        <small>SECONDS</small>
-      </div>
-
     </div>
 
-    <!-- GOOGLE MAPS DIRECTIONS -->
+    <!-- MAPS -->
+
     <a
       class="directions"
       href="https://www.google.com/maps/search/?api=1&query=NAS+Convention+Centre+Puzhakkattiri+Kerala"
@@ -472,6 +544,7 @@ body {
     <div class="divider"></div>
 
     <!-- FOOTER -->
+
     <p class="footer">
       YOUR GRACIOUS PRESENCE AND SINCERE PRAYERS
       WILL MAKE THIS BLESSED OCCASION TRULY
@@ -483,36 +556,22 @@ body {
       FROM THE BRIDE'S FAMILY
     </p>
 
-    <div class="family">
+    <p class="family">
       Mr. Saidalavi & Mrs. Juvairiya
-    </div>
+    </p>
 
   </div>
-</main>
+</section>
 
 <script>
-/* OPEN INVITATION */
-function openInvitation() {
-  const opening = document.getElementById("opening");
-  const invitation = document.getElementById("invitation");
-
-  opening.style.opacity = "0";
-  opening.style.visibility = "hidden";
-
-  invitation.style.display = "block";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
 /* COUNTDOWN */
+
 const weddingDate = new Date(
   "2026-12-06T00:00:00+05:30"
 ).getTime();
 
 function updateCountdown() {
+
   const now = new Date().getTime();
   const difference = weddingDate - now;
 
@@ -557,6 +616,7 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
 </script>
 
 </body>
